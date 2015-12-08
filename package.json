@@ -1,0 +1,11 @@
+{
+  "name": "Employee management",
+  "description": "An application to add, update, search and delete the emplyees",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "*",
+    "sqlite3": "*"
+  }
+}
+
+
