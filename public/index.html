@@ -3,34 +3,18 @@
 	<head>
 		
 			<title>Serving status pages using expressjs</title>
-		<style>
-table, th, td {
-    border: 1px solid black;
-}
-</style>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+		<link rel="stylesheet" href="emp-styles.css">
+		<link rel="stylesheet" href="pure-extras.css">
 		</head>
 
 		<body>
-			<div>
-				<div ng-controller="EmployeeCtrl" data-ng-init="loadEmployee()">
-					<p>    Click <a ng-click="loadEmployee()">here</a> to load data.</p>
-					<table>
-						<tr>
-							<th>ID</th>
-							<th>Name</th>
-							<th>Designation</th>
-							<th>Email</th>
-						</tr>
-						<tr ng-repeat="emp in employee">
-							<td>{{emp.ID}}</td>
-							<td>{{emp.Name}}</td>
-							<td>{{emp.Designation}}</td>
-							<td>{{emp.Email}}</td>
-						</tr>
-					</table>
+			<div class="global_font">
+				<div id="main">
+					<div ng-view></div>
 				</div>
 			</div>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js" ><script>	
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js" ></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-route.min.js" ></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
 			<script src="client.js" ></script>

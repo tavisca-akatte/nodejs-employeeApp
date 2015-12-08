@@ -1,0 +1,33 @@
+
+/*tr:nth-child(even){background-color: #f2f2f2}*/
+
+th {
+    background-color: #E0E0E0;
+    color: black;
+}
+
+.global_font {
+    font-family: "Verdana", sans-serif;
+}
+
+.button-warning {
+    background: rgb(223, 117, 20);
+}
+
+.button-error {
+    background: rgb(202, 60, 60);
+}
+
+.button-success {
+    background: rgb(28, 184, 65);
+}
+
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.edit-form{
+    margin-top: 5%;
+}

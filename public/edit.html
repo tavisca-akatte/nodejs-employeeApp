@@ -1,0 +1,31 @@
+<div  ng-controller="EditEmployeeController" data-ng-init="getEmployee()">
+    <form class="pure-form pure-form-aligned edit-form">
+        <fieldset>
+            <div id="alert" class="pure-alert pure-alert-success"></div>
+            <div class="pure-control-group">
+                <label for="id">Id</label>
+                <input id="id" type="text" placeholder="Id" readonly value="{{employee.ID}}">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Name" value="{{employee.Name}}">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="designation">Designation</label>
+                <input id="designation" type="text" placeholder="Designation" value="{{employee.Designation}}">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="Email" value="{{employee.Email}}">
+            </div>
+
+            <div class="pure-controls">
+                <button type="submit" class="pure-button button-secondary button-success" ng-click="save()">Save</button>
+                <button type="submit" class="pure-button pure-button-secondary" ng-click="goHome()">Cancel</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
