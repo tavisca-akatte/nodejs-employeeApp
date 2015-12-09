@@ -26,19 +26,16 @@
 			<th>Name</th>
 			<th>Designation</th>
 			<th>Email</th>
-			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
 		<tr ng-repeat="emp in employees | filter:query">
-			<td>{{emp.ID}}</td>
+			<td><a href="#/edit/{{emp.ID}}">{{emp.ID}}</a></td>
 			<td>{{emp.Name}}</td>
 			<td>{{emp.Designation}}</td>
 			<td>{{emp.Email}}</td>
 			<td>
-				<button class="pure-button button-secondary pure-button-warning" ng-click="editEmployee('/edit',emp.ID)">Edit</button>
-			</td>
-			<td>
-				<button class="pure-button button-secondary pure-button-error" ng-click="deleteEmployee(emp)">Delete</button>
+				<!--<button class="pure-button button-secondary pure-button-error" ng-click="deleteEmployee(emp)">Delete</button>-->
+				<a ng-click="deleteEmployee(emp)" class="icono-cross" ></a>
 			</td>
 		</tr>
 	</table>
