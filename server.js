@@ -20,7 +20,6 @@ server.use(express.static(__dirname + '/public', options));
 server.get('/employees/', function (req, res) {
 	db.getEmployees(function (error, result) {
 		res.contentType('application/json');
-		//console.log(result);
 		res.end(JSON.stringify(result));
 	});
 
@@ -30,7 +29,6 @@ server.get('/employee/:id', function (req, res) {
 	var empId = req.params.id;
 	db.getEmployee(empId, function (error, result) {
 		res.contentType('application/json');
-		//console.log(result);
 		res.end(JSON.stringify(result));
 	});
 
@@ -38,9 +36,7 @@ server.get('/employee/:id', function (req, res) {
 
 server.post('/edit', function (req, res) {
 	var employee = req.body;
-	console.log(employee);
 	db.updateEmployee(employee, function (result) {
-		console.log(result);
 		if (result === 1) {
 			res.writeHead(200,{'Content-Type': 'text/plain'});
 		} else {
@@ -54,7 +50,6 @@ server.post('/edit', function (req, res) {
 server.delete ('/delete/:id', function (req, res) {
 	var empId = req.params.id;
 	db.deleteEmployee(empId, function (result) {
-		console.log(result);
 		if (result === 1) {
 			res.writeHead(200,{'Content-Type': 'text/plain'});
 		} else {
@@ -67,7 +62,6 @@ server.delete ('/delete/:id', function (req, res) {
 
 server.post('/add', function (req, res) {
 	var employee = req.body;
-	console.log(employee);
 	db.addEmployee(employee, function (result) {
 		console.log(result);
 		if (result === 1) {

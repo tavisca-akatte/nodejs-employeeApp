@@ -8,9 +8,9 @@ var repository = "./db/simple.sqlite";
 exports.getEmployees = function (callback) {
 	var db = new sqlite.Database(repository);
 	var query = "SELECT ID, Name, Designation, Email FROM Employee";
-	db.all(query, function (err, rows) {
-		if (err) {
-			callback(err, null);
+	db.all(query, function (error, rows) {
+		if (error) {
+			callback(error, null);
 		}
 		callback(null, rows);
 	});
@@ -20,7 +20,7 @@ exports.getEmployees = function (callback) {
 exports.getEmployee = function (empId, callback) {
 	var db = new sqlite.Database(repository);
 	var query = "SELECT ID, Name, Designation, Email FROM Employee WHERE ID =" + empId;
-	db.all(query, function (err, rows) {
+	db.all(query, function (error, rows) {
 		if (typeof rows !== "undefined") {
 			callback(null, rows[0]);
 		} else {
@@ -34,9 +34,9 @@ exports.updateEmployee = function (employee, callback) {
 	var db = new sqlite.Database(repository);
 	var statement = db.prepare("UPDATE Employee SET Name = ? , Designation = ? , Email = ?  WHERE ID = ?");
 	statement.bind(employee.Name, employee.Designation, employee.Email, employee.ID);
-	statement.run(function (err) {
-		if (err) {
-			console.log(err);
+	statement.run(function (error) {
+		if (error) {
+			console.log(error);
 			callback(this.changes);
 
 		} else {
@@ -49,9 +49,9 @@ exports.deleteEmployee = function (empId, callback) {
 	var db = new sqlite.Database(repository);
 	var statement = db.prepare("Delete FROM Employee WHERE ID = ?");
 	statement.bind(empId);
-	statement.run(function (err) {
-		if (err) {
-			console.log(err);
+	statement.run(function (error) {
+		if (error) {
+			console.log(error);
 			callback(this.changes);
 
 		} else {
@@ -64,9 +64,9 @@ exports.addEmployee = function (employee, callback) {
 	var db = new sqlite.Database(repository);
 	var statement = db.prepare("INSERT INTO Employee (Name,Designation,Email) VALUES (?,?,?)");
 	statement.bind(employee.Name, employee.Designation, employee.Email);
-	statement.run(function (err) {
-		if (err) {
-			console.log(err);
+	statement.run(function (error) {
+		if (error) {
+			console.log(error);
 			callback(this.changes);
 
 		} else {
