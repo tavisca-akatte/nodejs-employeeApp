@@ -1,5 +1,5 @@
-<div ng-controller="EmployeeController" data-ng-init="loadEmployee()">
-    <p>    Click <a ng-click="loadEmployee()">here</a> to load data.</p>
+<div ng-controller="EmployeeController" data-ng-init="loadEmployee()" ng-model="employees" class="emp-list">
+<button class="pure-button pure-button-primary" ng-click="editEmployee('/add')">Add New</button>
     <table class="pure-table pure-table-bordered">
         <tr>
             <th>ID</th>
@@ -14,7 +14,7 @@
             <td>{{emp.Name}}</td>
             <td>{{emp.Designation}}</td>
             <td>{{emp.Email}}</td>
-            <td><button class="pure-button button-secondary button-warning" ng-click="editEmployee(emp)">Edit</button></td>
+            <td><button class="pure-button button-secondary button-warning" ng-click="editEmployee('/edit',emp.ID)">Edit</button></td>
             <td><button class="pure-button button-secondary button-error" ng-click="deleteEmployee(emp)">Delete</button></td>
         </tr>
     </table>
