@@ -16,12 +16,15 @@ app.config(function ($routeProvider, $locationProvider) {
 	});
 
 	$locationProvider.html5Mode(false);
+	
 });
 
 app.controller("EmployeeController", function ($scope, $http, $location) {
 	$scope.employees = [];
 	$scope.statusCode = '200';
-
+	$scope.query = {};
+    $scope.queryBy = 'Name';
+	
 	$scope.loadEmployee = function () {
 		$http({
 			method : 'GET',

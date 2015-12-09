@@ -36,6 +36,11 @@ th {
 	margin: 5%;
 }
 .add-emp{
-	margin-left: 15%;
+	
+}
+
+.search-widget{
+	display:inline-block;
+	clear: all;
 	margin-bottom: 1%;
 }

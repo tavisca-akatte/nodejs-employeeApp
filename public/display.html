@@ -1,21 +1,45 @@
 <div ng-controller="EmployeeController" data-ng-init="loadEmployee()" ng-model="employees" class="emp-list">
-<button class="pure-button pure-button-primary add-emp" ng-click="editEmployee('/add')" >Add New</button>
-    <table class="pure-table pure-table-bordered">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Designation</th>
-            <th>Email</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-        <tr ng-repeat="emp in employees">
-            <td>{{emp.ID}}</td>
-            <td>{{emp.Name}}</td>
-            <td>{{emp.Designation}}</td>
-            <td>{{emp.Email}}</td>
-            <td><button class="pure-button button-secondary button-warning" ng-click="editEmployee('/edit',emp.ID)">Edit</button></td>
-            <td><button class="pure-button button-secondary button-error" ng-click="deleteEmployee(emp)">Delete</button></td>
-        </tr>
-    </table>
+
+	<div class="pure-control-group search-widget">
+		<form class="pure-form pure-form-aligned edit-form" >
+			<button class="pure-button pure-button-primary add-emp" ng-click="editEmployee('/add')" >Add New</button>
+			<span>Search By :
+				<select ng-model="queryBy">
+					<option value="Name">Name</option>
+					<option value="Designation">Designation</option>
+					<option value="Email">Email</option>
+				</select> 
+
+			</span>
+			<span>
+				<input type="text" ng-model="query[queryBy]"/>
+			</span>
+			<span>
+				<button class="pure-button" ng-click="" >Search</button>
+			</span>
+		</form>
+	</div>
+
+	<table class="pure-table pure-table-bordered">
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Designation</th>
+			<th>Email</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+		<tr ng-repeat="emp in employees | filter:query">
+			<td>{{emp.ID}}</td>
+			<td>{{emp.Name}}</td>
+			<td>{{emp.Designation}}</td>
+			<td>{{emp.Email}}</td>
+			<td>
+				<button class="pure-button button-secondary pure-button-warning" ng-click="editEmployee('/edit',emp.ID)">Edit</button>
+			</td>
+			<td>
+				<button class="pure-button button-secondary pure-button-error" ng-click="deleteEmployee(emp)">Delete</button>
+			</td>
+		</tr>
+	</table>
 </div>
