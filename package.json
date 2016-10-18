@@ -1,6 +1,6 @@
 {
   "name": "EmployeeManagement",
-  "description": "An application to add, update, search and delete the emplyees",
+  "description": "An application to add, update, search and delete the employees",
   "version": "1.0.0",
   "dependencies": {
     "body-parser": "^1.14.1",
